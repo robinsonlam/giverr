@@ -1,4 +1,4 @@
-# giverr
+# Giverr is an app for the homeless
 
 ## Project setup
 ```

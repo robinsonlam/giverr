@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld msg="This is giverr"/>
+    <BannerMessage msg="This is giverr"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BannerMessage from './components/BannerMessage.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    BannerMessage
   }
 }
 </script>

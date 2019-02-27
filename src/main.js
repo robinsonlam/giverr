@@ -1,6 +1,14 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App.vue';
 import firebase from 'firebase';
+import { MdCard, MdField, MdButton, MdProgress} from 'vue-material/dist/components';
+import 'vue-material/dist/vue-material.min.css';
+import 'vue-material/dist/theme/default.css';
+
+Vue.use(MdCard);
+Vue.use(MdField);
+Vue.use(MdButton);
+Vue.use(MdProgress);
 
 const config = {
   apiKey: "AIzaSyDELpcZ2u53bmlGD07CaRnYhKA0rRqRCJo",
@@ -14,8 +22,6 @@ const config = {
 firebase.initializeApp(config);
 
 Vue.config.productionTip = false
-
-// Vue Deez Nuts
 
 new Vue({
   render: h => h(App),

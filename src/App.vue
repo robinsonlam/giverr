@@ -1,12 +1,10 @@
 <template>
 <div id="app">
-  <BannerMessage msg="This is giverr" />
   <SignInForm v-bind:user="user" v-on:signIn="signIn" v-on:createUser="createUser"/>
 </div>
 </template>
 
 <script>
-import BannerMessage from './components/BannerMessage.vue'
 import SignInForm from './components/SignInForm';
 import firebase from 'firebase';
 
@@ -27,7 +25,6 @@ export default {
     }
   },
   components: {
-    BannerMessage,
     SignInForm
   }
 }
@@ -35,11 +32,10 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 </style>

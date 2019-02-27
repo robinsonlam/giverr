@@ -20,7 +20,6 @@
     </div>
 
     <div class="actions md-layout md-alignment-center-space-between">
-      <a>Reset password</a>
       <md-button class="md-raised md-primary" @click="login">Log in</md-button>
       <md-button class="md-raised md-primary" @click="register">Create Account</md-button>
     </div>

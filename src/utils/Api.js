@@ -7,11 +7,13 @@ const API = {
 			console.log("signing in");
 		},
 
-		createUser: (email, password) => {
-			// firebase.auth().createUserWithEmailAndPassword(email, password).catch(function() {
-			// });
-
-			console.log("creating user");
+		createUser: async (email, password) => {
+			try {
+				const registrationResult = await firebase.auth().createUserWithEmailAndPassword(email, password);
+				console.log("creating user", registrationResult);
+			} catch (e) {
+				console.log(`There was an error: ${e}`);
+			}
 		}
 	}
 }

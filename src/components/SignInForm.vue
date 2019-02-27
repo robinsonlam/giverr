@@ -20,8 +20,8 @@
     </div>
 
     <div class="actions md-layout md-alignment-center-space-between">
-      <md-button class="md-raised md-primary">Log in</md-button>
-      <md-button class="md-raised md-primary" @click="createUser">Create Account</md-button>
+      <md-button class="md-raised md-primary" @click="login">Log in</md-button>
+      <md-button class="md-raised md-primary" @click="register">Create Account</md-button>
     </div>
 
     <div class="loading-overlay" v-if="loading">
@@ -35,19 +35,24 @@
 <script>
 export default {
   name: 'SignInForm',
-  props: ['user'],
+  props: [
+		'user',
+		'sign-in',
+		'create-user'
+	],
   data: function() {
     return {
       email: '',
-      password: ''
+      password: '',
+			loading: false
     }
   },
   methods: {
-    signIn: function() {
-      this.$emit('signIn', this.email, this.password)
+    login: function() {
+			this.signIn(this.email, this.password);
     },
-    createUser: function() {
-      this.$emit('createUser', this.email, this.password)
+    register: function() {
+			this.createUser(this.email, this.password);
     }
   }
 }

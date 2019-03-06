@@ -1,41 +1,20 @@
 <template>
-<div id="app">
-  <SignInForm
-		v-bind:user="user"
-
-		:sign-in="signIn"
-		:create-user="createUser"
-	/>
-</div>
+  <div id="app">
+    <md-toolbar md-elevation="1">
+      <h3 class="md-title" style="flex: 1">Giverr</h3>
+      <router-link :to="{ name: 'Home' }">
+        <md-button>Home</md-button>
+      </router-link>
+      <router-link :to="{ name: 'Sign In' }">
+        <md-button class="md-primary">Sign in</md-button>
+      </router-link>
+    </md-toolbar>
+    <router-view />
+  </div>
 </template>
 
 <script>
-import SignInForm from './components/SignInForm';
-import API from './utils/Api';
-
 export default {
-  name: 'app',
-  data: function() {
-    return {
-      user: null
-    }
-  },
-  methods: {
-    signIn: API.auth.signIn,
-    createUser: API.auth.createUser
-  },
-  components: {
-    SignInForm
-  }
+  name: 'app'
 }
 </script>
-
-<style>
-#app {
-  text-align: center;
-  color: #2c3e50;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-</style>

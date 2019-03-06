@@ -3,8 +3,7 @@ import firebase from 'firebase';
 const API = {
 	auth: {
 		signIn: (email, password) => {
-			// alert(`Sign in with email as ${email} and password as ${password}!`);
-			console.log("signing in");
+			return firebase.auth().signInWithEmailAndPassword(email, password);
 		},
 
 		createUser: (email, password) => {

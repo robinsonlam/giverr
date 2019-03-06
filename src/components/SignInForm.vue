@@ -6,9 +6,22 @@
         <div class="md-body-1">For those in need</div>
       </div>
 
-      <div class="form">
-        <md-field>
-          <label>E-mail</label>
+			<ul
+				id="signInErrors"
+				v-if="errors.length"
+	  		key="sign-in-errors"
+			>
+				<li
+					class="errorMessage"
+					v-for="error in errors"
+				>
+					{{ error }}
+				</li>
+			</ul>
+
+	    <div class="form">
+	      <md-field>
+	        <label>E-mail</label>
           <md-input
             type="email"
             name="email"
@@ -29,26 +42,20 @@
         </md-field>
       </div>
 
-      <div class="actions md-layout md-alignment-center-space-between">
-        <md-button class="md-raised md-primary">Log in</md-button>
-        <md-button class="md-raised md-primary" @click="register"
-          >Create Account</md-button
-        >
-      </div>
 
-    <div class="actions md-layout md-alignment-center-space-between">
-      <md-button class="md-raised md-primary" @click="login">Log in</md-button>
-      <md-button class="md-raised md-primary" @click="register">Create Account</md-button>
-    </div>
+	    <div class="actions md-layout md-alignment-center-space-between">
+	      <md-button class="md-raised md-primary" @click="login">Log in</md-button>
+	      <md-button class="md-raised md-primary" @click="register">Create Account</md-button>
+	    </div>
 
-		<div class="loading-overlay" v-if="loading">
-			<md-progress-spinner
-				md-mode="indeterminate"
-				:md-stroke="2"
-			></md-progress-spinner>
-		</div>
-	</md-card>
-</div>
+			<div class="loading-overlay" v-if="loading">
+				<md-progress-spinner
+					md-mode="indeterminate"
+					:md-stroke="2"
+				></md-progress-spinner>
+			</div>
+		</md-card>
+	</div>
 </template>
 
 <script>
@@ -57,13 +64,14 @@ export default {
   props: [
 		'user',
 		'sign-in',
-		'create-user'
+		'create-user',
+		'errors',
+		'loading'
 	],
   data: function() {
     return {
       email: '',
-      password: '',
-			loading: false
+      password: ''
     }
   },
   methods: {
@@ -121,5 +129,15 @@ export default {
     align-items: center;
     justify-content: center;
   }
+
+
+	#signInErrors {
+		list-style: none;
+		padding: 0;
+	}
+
+	.errorMessage {
+		color: #e54304;
+	}
 }
 </style>
